@@ -77,13 +77,15 @@ def save_to_database(
 
     connection = None
     try:
-        connection = psycopg2.connect(
-            database=os.getenv("DB_NAME"),
-            host=os.getenv("DB_HOST"),
-            user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASSWORD"),
-            port=os.getenv("DB_PORT"),
-        )
+        # connection = psycopg2.connect(
+        #     database=os.getenv("DB_NAME"),
+        #     host=os.getenv("DB_HOST"),
+        #     user=os.getenv("DB_USER"),
+        #     password=os.getenv("DB_PASSWORD"),
+        #     port=os.getenv("DB_PORT"),
+        # )
+
+        connection = psycopg2.connect(os.getenv("DATABASE_URL"))
 
         cursor = connection.cursor()
 
@@ -305,6 +307,13 @@ def get_all_images():
             images[filename] = encoded_image
 
     return jsonify(images)
+
+@app.route("/test", methods=["GET"])
+@cross_origin()  # Allow CORS for this route
+def test():
+    
+    return jsonify("testing")
+
 
 
 if __name__ == "__main__":
