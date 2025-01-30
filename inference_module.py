@@ -83,6 +83,7 @@ def draw_predictions(image, predictions, fill_color="red", alpha=1.0):
     buf = io.BytesIO()
     plt.savefig(buf, format="png", bbox_inches="tight", pad_inches=0)
     buf.seek(0)
+    plt.close()
     return base64.b64encode(buf.read()).decode("utf-8")
 
 

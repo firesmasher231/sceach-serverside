@@ -144,7 +144,7 @@ import random
 
 @app.route("/submit_scan", methods=["GET"])
 @cross_origin()  # Allow CORS for this route
-@limiter.limit("3 per second")
+# @limiter.limit("3 per second")
 def get_tile():
 
     x = request.args.get("x")

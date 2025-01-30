@@ -25,7 +25,7 @@ def polygon_area(points):
 
 def draw_predictions(image, predictions):
     plt.figure(figsize=(10, 10))
-    plt.imshow(image)
+    # plt.imshow(image)
     ax = plt.gca()
 
     if isinstance(predictions, Polygon):
@@ -92,7 +92,7 @@ def process_image(image_path, client, project_id, model_version):
 
 def draw_predictions(image, predictions):
     plt.figure(figsize=(10, 10))
-    plt.imshow(image)
+    # plt.imshow(image)
     ax = plt.gca()
 
     if isinstance(predictions, Polygon):
